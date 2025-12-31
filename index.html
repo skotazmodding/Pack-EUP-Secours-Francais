@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuto Pack EUP Secours Français</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+                html {
+            scrollbar-width: none; 
+            -ms-overflow-style: none; 
+        }
+        html::-webkit-scrollbar {
+            display: none; 
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('https://i.ibb.co/NRvv9fL/BANNIERE.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #e0e0e0;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: rgba(30, 30, 30, 0.85);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+        }
+        h1 {
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .top-download {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* AJOUT UNIQUEMENT DU STYLE COMING SOON */
+        @keyframes rotateHourglass {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+            100% { transform: rotate(180deg); }
+        }
+        .fa-hourglass-half {
+            animation: rotateHourglass 2s infinite ease-in-out;
+            display: inline-block;
+        }
+        .btn-coming-soon {
+            display: inline-block;
+            background: rgba(100, 100, 100, 0.3);
+            color: #bbb;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            border: 2px dashed #555;
+            cursor: not-allowed;
+            transition: all 0.3s ease;
+        }
+
+        .btn-download {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-download:hover {
+            background: #218838;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
+        }
+
+        .step {
+            background: rgba(50, 50, 50, 0.7);
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .step:hover {
+            transform: translateX(10px);
+            background: rgba(70, 70, 70, 0.9);
+        }
+        .icon {
+            background: #007bff;
+            color: white;
+            min-width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.2em;
+            box-shadow: 0 4px 10px rgba(0,123,255,0.4);
+        }
+        .step-content {
+            flex: 1;
+        }
+        .step-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #fff;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .path-box {
+            color: #ffcc00;
+            margin-top: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: 1.25em;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffcc00;
+            display: inline-block;
+        }
+
+        .links a {
+            display: inline-block;
+            background: rgba(0, 123, 255, 0.2);
+            color: #4db8ff;
+            padding: 6px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px 10px 5px 0;
+            font-weight: bold;
+            font-size: 0.85em;
+            border: 1px solid #007bff;
+            transition: all 0.2s;
+        }
+        .links a:hover {
+            background: #007bff;
+            color: white;
+        }
+        code {
+            background: #000;
+            color: #56db3a;
+            padding: 15px;
+            display: block;
+            margin-top: 15px;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            border: 1px solid #333;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        .btn-warning {
+            background: #ffc107;
+            color: #212529;
+        }
+        .btn-warning:hover {
+            background: #e0a800;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .modal::-webkit-scrollbar {
+            display: none;
+        }
+
+        .modal-content {
+            background: rgba(30, 30, 30, 0.95);
+            margin: 40px auto;
+            padding: 30px;
+            border: 1px solid #ffcc00;
+            width: 85%;
+            max-width: 650px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 30px rgba(255, 204, 0, 0.2);
+        }
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+        }
+        .problem-img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 2px solid #444;
+        }
+
+        .bottom-section {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #444;
+        }
+        .btn-discord {
+            display: inline-block;
+            background: #5865F2;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        .btn-discord:hover {
+            background: #4752c4;
+            transform: scale(1.05);
+        }
+        .footer {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #fff;
+            font-size: 1.3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        .badge {
+            background: #ff3e3e;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            margin-left: 10px;
+        }
+        .logo-footer {
+            max-width: 180px;
+            height: auto;
+            margin-top: 20px;
+            filter: drop-shadow(0 0 8px rgba(0, 123, 255, 0.4));
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Installation Pack EUP Secours Français</h1>
+
+    <div class="top-download">
+        <div class="btn-coming-soon">
+            <i class="fas fa-hourglass-half"></i> COMING SOON - PACK EN PRÉPARATION
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="icon">🛠️</div>
+        <div class="step-content">
+            <span class="step-title">Prérequis Anti-Crash <span class="badge">Important</span></span>
+            Installe ces correctifs pour éviter tout problème !
+            <div class="links">
+                <a href="https://www.gta5-mods.com/scripts/pedprop-limit-adjuster" target="_blank">PedProp Limit</a>
+                <a href="https://fr.gta5-mods.com/misc/gta-5-gameconfig-300-cars" target="_blank">Gameconfig</a>
+                <a href="https://fr.gta5-mods.com/tools/heapadjuster" target="_blank">Heap Limit</a>
+                <a href="https://fr.gta5-mods.com/tools/packfile-limit-adjuster" target="_blank">Packfile Limit</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="icon">📂</div>
+        <div class="step-content">
+            <span class="step-title">Installation des fichiers</span>
+            Glisse le contenu du dossier <strong>DEPLACER</strong> directement à la racine de ton GTA V.
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="icon">🔍</div>
+        <div class="step-content">
+            <span class="step-title">Utilisation de OpenIV</span>
+            Ouvre <strong>OpenIV</strong> et rends-toi dans le répertoire suivant :<br>
+            <div class="path-box">GTA V > mods > update > update.rpf > common > data</div>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="icon">📝</div>
+        <div class="step-content">
+            <span class="step-title">Configuration du DLC List</span>
+            Ouvre le fichier <strong>dlclist.xml</strong> et ajoute ces lignes :
+            <code>        &lt;Item&gt;dlcpacks:/eup/&lt;/Item&gt;
+        &lt;Item&gt;dlcpacks:/sup/&lt;/Item&gt;
+        &lt;Item&gt;dlcpacks:/packfreupsm/&lt;/Item&gt;
+        &lt;Item&gt;dlcpacks:/packfreupsm2/&lt;/Item&gt;</code>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="icon">✅</div>
+        <div class="step-content">
+            <span class="step-title">Lancement du jeu</span>
+            C'est terminé ! Tu peux maintenant profiter du pack en jeu.
+        </div>
+    </div>
+
+    <div class="step" style="border: 1px solid #ffcc00; background: rgba(255, 193, 7, 0.1);">
+        <div class="icon" style="background: #ffc107; color: #000;">⚠️</div>
+        <div class="step-content">
+            <span class="step-title">Problèmes Connus</span>
+            Tu as un problème technique, regarde les solutions ici.
+            <br><br>
+            <button onclick="openModal()" class="btn-download btn-warning" style="padding: 10px 25px; font-size: 0.9em;">
+                <i class="fas fa-exclamation-triangle"></i> VOIR LES SOLUTIONS
+            </button>
+        </div>
+    </div>
+
+    <div class="bottom-section">
+        <div>
+            <img src="https://i.ibb.co/6RwKXGjK/logo2.png" alt="Logo Skotaz" class="logo-footer">
+        </div>
+        <div class="footer">Au nom de l'équipe Skotaz Modding !</div>
+        <a href="https://discord.gg/QEqWJK9g" target="_blank" class="btn-discord">
+            <i class="fab fa-discord"></i> Rejoindre notre Discord
+        </a>
+    </div>
+</div>
+
+<div id="problemModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2 style="color: #ffcc00;">Problèmes Connus</h2>
+        
+        <div style="margin-bottom: 40px; border-bottom: 1px solid #444; padding-bottom: 20px;">
+            <p>Si tu vois les cheveux comme ça, c'est que tu as pas mis <strong>PedProp Limit</strong> !</p>
+            <img src="https://i.ibb.co/PZNyWv2h/image-2025-12-31-095827205.png" alt="Erreur Cheveux" class="problem-img">
+            <div class="links">
+                <a href="https://www.gta5-mods.com/scripts/pedprop-limit-adjuster" target="_blank" style="background: #28a745; color: white; border-color: #28a745;">
+                    <i class="fas fa-wrench"></i> TÉLÉCHARGER PEDPROP LIMIT
+                </a>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 40px; border-bottom: 1px solid #444; padding-bottom: 20px;">
+            <p>Si tu vois le pantalon comme ça, met d'abord une des première tenues de rebrique pour le de-bug !</p>
+            <img src="https://i.ibb.co/mCCTjW0h/image.png" alt="Erreur Pantalon" class="problem-img">
+        </div>
+
+        <div>
+            <p>Si ton problème n'est aucun de ceux au dessus, demande de l'aide sur le Discord</p>
+            <a href="https://discord.gg/QEqWJK9g" target="_blank" class="btn-discord">
+                <i class="fab fa-discord"></i> Demander de l'aide
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal() {
+        document.getElementById("problemModal").style.display = "block";
+    }
+    function closeModal() {
+        document.getElementById("problemModal").style.display = "none";
+    }
+    window.onclick = function(event) {
+        let modal = document.getElementById("problemModal");
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+</script>
+
+</body>
+</html>
