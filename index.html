@@ -6,7 +6,7 @@
     <title>Tuto Pack EUP Secours Français</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-                html {
+        html {
             scrollbar-width: none; 
             -ms-overflow-style: none; 
         }
@@ -50,36 +50,11 @@
             text-align: center;
             margin-bottom: 40px;
         }
-
-        /* AJOUT UNIQUEMENT DU STYLE COMING SOON */
-        @keyframes rotateHourglass {
-            0% { transform: rotate(0deg); }
-            50% { transform: rotate(180deg); }
-            100% { transform: rotate(180deg); }
-        }
-        .fa-hourglass-half {
-            animation: rotateHourglass 2s infinite ease-in-out;
-            display: inline-block;
-        }
-        .btn-coming-soon {
-            display: inline-block;
-            background: rgba(100, 100, 100, 0.3);
-            color: #bbb;
-            padding: 18px 45px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2em;
-            border: 2px dashed #555;
-            cursor: not-allowed;
-            transition: all 0.3s ease;
-        }
-
         .btn-download {
             display: inline-block;
             background: #28a745;
             color: white;
-            padding: 18px 45px;
+            padding: 15px 45px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
@@ -88,11 +63,34 @@
             box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
             border: none;
             cursor: pointer;
+            line-height: 1.2;
         }
         .btn-download:hover {
             background: #218838;
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
+        }
+
+        /* Petit bouton pour les rubriques avec nouvelle couleur Cyan */
+        .btn-small {
+            padding: 10px 25px;
+            font-size: 0.9em;
+            margin-top: 15px;
+            background: #17a2b8; 
+            box-shadow: 0 4px 12px rgba(23, 162, 184, 0.3);
+        }
+        .btn-small:hover {
+            background: #138496;
+            box-shadow: 0 6px 15px rgba(23, 162, 184, 0.5);
+        }
+
+        .btn-version-sub {
+            display: block;
+            font-size: 0.55em;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-top: 4px;
+            letter-spacing: 1px;
         }
 
         .step {
@@ -104,6 +102,7 @@
             display: flex;
             align-items: flex-start;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
         }
         .step:hover {
             transform: translateX(10px);
@@ -121,6 +120,9 @@
             margin-right: 20px;
             font-size: 1.2em;
             box-shadow: 0 4px 10px rgba(0,123,255,0.4);
+            /* Centrage forcé pour les emojis */
+            line-height: 45px;
+            text-align: center;
         }
         .step-content {
             flex: 1;
@@ -185,6 +187,53 @@
             background: #e0a800;
         }
 
+        .btn-copy {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toast-notification {
+            visibility: hidden;
+            min-width: 220px;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: #fff;
+            text-align: center;
+            border-radius: 12px;
+            padding: 12px 24px;
+            position: fixed;
+            z-index: 2000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 123, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transition: opacity 0.4s, bottom 0.4s, visibility 0.4s;
+        }
+
+        .toast-notification.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 50px;
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -198,9 +247,6 @@
             overflow-y: auto;
             scrollbar-width: none;
             -ms-overflow-style: none;
-        }
-        .modal::-webkit-scrollbar {
-            display: none;
         }
 
         .modal-content {
@@ -223,12 +269,6 @@
             font-weight: bold;
             color: #fff;
             cursor: pointer;
-        }
-        .problem-img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin: 15px 0;
-            border: 2px solid #444;
         }
 
         .bottom-section {
@@ -259,6 +299,14 @@
             font-size: 1.3em;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
+        .version-tag {
+            margin-top: 25px;
+            font-size: 0.75em;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
+            font-weight: 300;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+        }
         .badge {
             background: #ff3e3e;
             color: white;
@@ -267,6 +315,9 @@
             font-size: 0.75em;
             text-transform: uppercase;
             margin-left: 10px;
+        }
+        .badge-optional {
+            background: #17a2b8; /* Assorti au nouveau bleu cyan */
         }
         .logo-footer {
             max-width: 180px;
@@ -278,13 +329,18 @@
 </head>
 <body>
 
+<div id="toast" class="toast-notification">
+    <i class="fas fa-check-circle"></i> Texte copié avec succès !
+</div>
+
 <div class="container">
     <h1>Installation Pack EUP Secours Français</h1>
 
     <div class="top-download">
-        <div class="btn-coming-soon">
-            <i class="fas fa-hourglass-half"></i> COMING SOON - PACK EN PRÉPARATION
-        </div>
+        <a href="https://dl-29vb9178.swisstransfer.com/api/download/657648da-8d9d-43a4-a02d-443207e41d21/369426eb-fb77-48bb-a931-71ce67dafe1d" target="_blank" class="btn-download">
+            <i class="fas fa-cloud-download-alt"></i> TÉLÉCHARGER LE PACK
+            <span class="btn-version-sub">Version 2.1 Stable - 01 Janv 2026</span>
+        </a>
     </div>
 
     <div class="step">
@@ -319,14 +375,28 @@
     </div>
 
     <div class="step">
+        <button class="btn-copy" onclick="copyDlcList()"><i class="fas fa-copy"></i> Copier</button>
         <div class="icon">📝</div>
         <div class="step-content">
             <span class="step-title">Configuration du DLC List</span>
             Ouvre le fichier <strong>dlclist.xml</strong> et ajoute ces lignes :
-            <code>        &lt;Item&gt;dlcpacks:/eup/&lt;/Item&gt;
+            <code id="dlcCode">        &lt;Item&gt;dlcpacks:/eup/&lt;/Item&gt;
         &lt;Item&gt;dlcpacks:/sup/&lt;/Item&gt;
         &lt;Item&gt;dlcpacks:/packfreupsm/&lt;/Item&gt;
         &lt;Item&gt;dlcpacks:/packfreupsm2/&lt;/Item&gt;</code>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="icon">🎮</div>
+        <div class="step-content">
+            <span class="step-title">Preset pour Policing Redefined <span class="badge badge-optional">Optionnel</span></span>
+            Glisse le dossier <strong>plugins</strong> directement à la racine de ton GTA V.
+            <br>
+            <a href="https://dl-312naes4.swisstransfer.com/api/download/a6f402ba-9268-4d99-ae69-62ce49bd9084/d4794538-7cb2-4b27-9a57-7dfee9ac79c9" target="_blank" class="btn-download btn-small">
+                <i class="fas fa-file-download"></i> TÉLÉCHARGER LE PRESET
+                <span class="btn-version-sub">Version 2.1 Stable - 01 Janv 2026</span>
+            </a>
         </div>
     </div>
 
@@ -358,6 +428,7 @@
         <a href="https://discord.gg/QEqWJK9g" target="_blank" class="btn-discord">
             <i class="fab fa-discord"></i> Rejoindre notre Discord
         </a>
+        <div class="version-tag">Version 2.1 Stable - 01 Janv 2026</div>
     </div>
 </div>
 
@@ -365,28 +436,7 @@
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal()">&times;</span>
         <h2 style="color: #ffcc00;">Problèmes Connus</h2>
-        
-        <div style="margin-bottom: 40px; border-bottom: 1px solid #444; padding-bottom: 20px;">
-            <p>Si tu vois les cheveux comme ça, c'est que tu as pas mis <strong>PedProp Limit</strong> !</p>
-            <img src="https://i.ibb.co/PZNyWv2h/image-2025-12-31-095827205.png" alt="Erreur Cheveux" class="problem-img">
-            <div class="links">
-                <a href="https://www.gta5-mods.com/scripts/pedprop-limit-adjuster" target="_blank" style="background: #28a745; color: white; border-color: #28a745;">
-                    <i class="fas fa-wrench"></i> TÉLÉCHARGER PEDPROP LIMIT
-                </a>
-            </div>
-        </div>
-
-        <div style="margin-bottom: 40px; border-bottom: 1px solid #444; padding-bottom: 20px;">
-            <p>Si tu vois le pantalon comme ça, met d'abord une des première tenues de rebrique pour le de-bug !</p>
-            <img src="https://i.ibb.co/mCCTjW0h/image.png" alt="Erreur Pantalon" class="problem-img">
-        </div>
-
-        <div>
-            <p>Si ton problème n'est aucun de ceux au dessus, demande de l'aide sur le Discord</p>
-            <a href="https://discord.gg/QEqWJK9g" target="_blank" class="btn-discord">
-                <i class="fab fa-discord"></i> Demander de l'aide
-            </a>
-        </div>
+        <p>Consultez les solutions habituelles pour régler vos soucis techniques, hein !</p>
     </div>
 </div>
 
@@ -402,6 +452,30 @@
         if (event.target == modal) {
             closeModal();
         }
+    }
+
+    function showToast() {
+        const toast = document.getElementById("toast");
+        toast.className = "toast-notification show";
+        setTimeout(function() {
+            toast.className = toast.className.replace("show", "");
+        }, 3000);
+    }
+
+    function copyDlcList() {
+        const codeElement = document.getElementById('dlcCode');
+        const textToCopy = codeElement.innerText;
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            const btn = document.querySelector('.btn-copy');
+            const originalText = btn.innerHTML;
+            btn.style.background = 'linear-gradient(135deg, #28a745 0%, #1e7e34 100%)';
+            btn.innerHTML = '<i class="fas fa-check"></i> Copié !';
+            showToast();
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = 'linear-gradient(135deg, #007bff 0%, #0056b3 100%)';
+            }, 2000);
+        });
     }
 </script>
 
