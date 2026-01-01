@@ -71,7 +71,6 @@
             box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
         }
 
-        /* Petit bouton pour les rubriques avec nouvelle couleur Cyan */
         .btn-small {
             padding: 10px 25px;
             font-size: 0.9em;
@@ -120,7 +119,6 @@
             margin-right: 20px;
             font-size: 1.2em;
             box-shadow: 0 4px 10px rgba(0,123,255,0.4);
-            /* Centrage forcé pour les emojis */
             line-height: 45px;
             text-align: center;
         }
@@ -270,6 +268,12 @@
             color: #fff;
             cursor: pointer;
         }
+        .problem-img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 2px solid #444;
+        }
 
         .bottom-section {
             text-align: center;
@@ -317,7 +321,7 @@
             margin-left: 10px;
         }
         .badge-optional {
-            background: #17a2b8; /* Assorti au nouveau bleu cyan */
+            background: #17a2b8;
         }
         .logo-footer {
             max-width: 180px;
@@ -436,7 +440,28 @@
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal()">&times;</span>
         <h2 style="color: #ffcc00;">Problèmes Connus</h2>
-        <p>Consultez les solutions habituelles pour régler vos soucis techniques, hein !</p>
+        
+        <div style="margin-bottom: 40px; border-bottom: 1px solid #444; padding-bottom: 20px;">
+            <p>Si tu vois les cheveux comme ça, c'est que tu as pas mis <strong>PedProp Limit</strong> !</p>
+            <img src="https://i.ibb.co/PZNyWv2h/image-2025-12-31-095827205.png" alt="Erreur Cheveux" class="problem-img">
+            <div class="links">
+                <a href="https://www.gta5-mods.com/scripts/pedprop-limit-adjuster" target="_blank" style="background: #28a745; color: white; border-color: #28a745;">
+                    <i class="fas fa-wrench"></i> TÉLÉCHARGER PEDPROP LIMIT
+                </a>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 40px; border-bottom: 1px solid #444; padding-bottom: 20px;">
+            <p>Si tu vois le pantalon comme ça, met d'abord une des première tenues de rubrique pour le de-bug !</p>
+            <img src="https://i.ibb.co/mCCTjW0h/image.png" alt="Erreur Pantalon" class="problem-img">
+        </div>
+
+        <div>
+            <p>Si ton problème n'est aucun de ceux au dessus, demande de l'aide sur le Discord</p>
+            <a href="https://discord.gg/QEqWJK9g" target="_blank" class="btn-discord">
+                <i class="fab fa-discord"></i> Demander de l'aide
+            </a>
+        </div>
     </div>
 </div>
 
