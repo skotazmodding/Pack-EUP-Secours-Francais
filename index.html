@@ -121,7 +121,6 @@
             opacity: 0.4;
             pointer-events: none;
         }
-        /* Bandes tricolores décoratives */
         .hero-stripe {
             position: absolute;
             left: 0; right: 0;
@@ -312,16 +311,7 @@
             from { opacity: 0; transform: translateY(16px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .step-card:nth-child(1) { animation-delay: 0.05s; }
-        .step-card:nth-child(2) { animation-delay: 0.1s; }
-        .step-card:nth-child(3) { animation-delay: 0.15s; }
-        .step-card:nth-child(4) { animation-delay: 0.2s; }
-        .step-card:nth-child(5) { animation-delay: 0.25s; }
-        .step-card:nth-child(6) { animation-delay: 0.3s; }
-        .step-card:nth-child(7) { animation-delay: 0.35s; }
-        .step-card:nth-child(8) { animation-delay: 0.4s; }
 
-        /* Ligne de timeline */
         .step-timeline {
             display: flex;
             flex-direction: column;
@@ -372,7 +362,6 @@
         }
         .step-card:last-child .step-vline { display: none; }
 
-        /* Contenu de l'étape */
         .step-body {
             flex: 1;
             padding: 6px 0 32px 20px;
@@ -482,11 +471,14 @@
             padding: 18px 20px;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.82rem;
-            line-height: 2;
+            line-height: 1.8;
             color: #7FFFD4;
             white-space: pre-wrap;
             overflow-x: auto;
             display: block;
+        }
+        .code-block.code-del {
+            color: #FF6B6B;
         }
         .code-header {
             display: flex;
@@ -820,12 +812,11 @@
         <h1 class="hero-title">Pack EUP<br><em>Secours Français</em></h1>
         <p class="hero-subtitle">Tenues d'intervention des services français pour GTA V — LSPDFR</p>
 
-        <a href="https://drive.google.com/drive/folders/1rv5IRBlNW_JDrWP2VtU1KdRQloF2C8Zf?usp=sharing"
-           target="_blank" class="btn-hero">
+        <a href="" target="_blank" class="btn-hero dynamic-download-link">
             <i class="fas fa-cloud-download-alt"></i>
             <span>
                 Télécharger le pack
-                <span class="btn-hero-meta">Version 2.7 Stable — 01 Aout 2026</span>
+                <span class="btn-hero-meta">Pack EUP Secours Français - V<span class="dynamic-version"></span></span>
             </span>
         </a>
 
@@ -833,7 +824,7 @@
 
         <div class="stats-bar">
             <div class="stat-item">
-                <span class="stat-value">2.7</span>
+                <span class="stat-value dynamic-version"></span>
                 <span class="stat-label">Version stable</span>
             </div>
             <div class="stat-item">
@@ -845,7 +836,7 @@
                 <span class="stat-label">Compatible</span>
             </div>
             <div class="stat-item">
-                <span class="stat-value">11</span>
+                <span class="stat-value">13</span>
                 <span class="stat-label">Secours français</span>
             </div>
         </div>
@@ -860,9 +851,14 @@
         <div class="section-line"></div>
     </div>
 
+    <!-- Alert Jeu Clean -->
+    <div class="alert-card" style="margin-bottom: 24px;">
+         Pour résoudre tout problème et éviter les conflits d'installation, il est fortement conseillé de partir d'un jeu propre.
+    </div>
+
     <div class="steps-list">
 
-        <!-- Étape 1 : Prérequis -->
+        <!-- Étape 1 : Installation EUP de base -->
         <div class="step-card">
             <div class="step-timeline">
                 <div class="step-num active">01</div>
@@ -870,28 +866,21 @@
             </div>
             <div class="step-body">
                 <div class="step-head">
-                    <span class="step-name">Prérequis anti-crash</span>
+                    <span class="step-name">Installation LSPDFR</span>
                     <span class="badge badge-required">Obligatoire</span>
                 </div>
-                <p class="step-desc">Installe ces 4 correctifs avant toute chose pour éviter les crashs et les limites moteur de GTA V.</p>
+                <p class="step-desc">
+                    Installe <strong>LSPDFR</strong>.
+                </p>
                 <div class="link-grid">
-                    <a class="link-chip" href="https://www.gta5-mods.com/scripts/pedprop-limit-adjuster" target="_blank">
-                        <i class="fas fa-wrench"></i> PedProp Limit
-                    </a>
-                    <a class="link-chip" href="https://fr.gta5-mods.com/misc/gta-5-gameconfig-300-cars" target="_blank">
-                        <i class="fas fa-cog"></i> Gameconfig
-                    </a>
-                    <a class="link-chip" href="https://fr.gta5-mods.com/tools/heapadjuster" target="_blank">
-                        <i class="fas fa-memory"></i> Heap Limit
-                    </a>
-                    <a class="link-chip" href="https://fr.gta5-mods.com/tools/packfile-limit-adjuster" target="_blank">
-                        <i class="fas fa-box"></i> Packfile Limit
+                    <a class="link-chip" href="https://www.lcpdfr.com/downloads/gta5mods/g17media/7792-lspd-first-response/" target="_blank">
+                        <i class="fas fa-play"></i> LSPDFR
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- Étape 2 : Fichiers -->
+        <!-- Étape 2 : Prérequis Anti-Crash -->
         <div class="step-card">
             <div class="step-timeline">
                 <div class="step-num active">02</div>
@@ -899,15 +888,31 @@
             </div>
             <div class="step-body">
                 <div class="step-head">
-                    <span class="step-name">Installation des fichiers</span>
+                    <span class="step-name">Prérequis anti-crash</span>
+                    <span class="badge badge-required">Obligatoire</span>
                 </div>
-                <p class="step-desc">
-                    Glisse l'intégralité du contenu du dossier <strong>DEPLACER</strong> directement à la racine de ton répertoire GTA V.
-                </p>
+                <p class="step-desc">Télécharge et installe ces 5 correctifs indispensables pour stabiliser GTA V avec des mods :</p>
+                <div class="link-grid">
+                    <a class="link-chip" href="https://www.gta5-mods.com/fr/misc/gta-5-gameconfig-300-cars" target="_blank">
+                        <i class="fas fa-cog"></i> Gameconfig
+                    </a>
+                    <a class="link-chip" href="https://www.gta5-mods.com/scripts/pedprop-limit-adjuster" target="_blank">
+                        <i class="fas fa-wrench"></i> PedProp Limit
+                    </a>
+                    <a class="link-chip" href="https://www.gta5-mods.com/fr/tools/heapadjuster" target="_blank">
+                        <i class="fas fa-memory"></i> HeapAdjuster
+                    </a>
+                    <a class="link-chip" href="https://www.gta5-mods.com/fr/tools/packfile-limit-adjuster" target="_blank">
+                        <i class="fas fa-box"></i> Packfile Limit
+                    </a>
+                    <a class="link-chip" href="https://www.gta5-mods.com/tools/resource-adjuster" target="_blank">
+                        <i class="fas fa-sliders-h"></i> Resource Adjuster
+                    </a>
+                </div>
             </div>
         </div>
 
-        <!-- Étape 3 : OpenIV -->
+        <!-- Étape 3 : Copie du dlclist.xml -->
         <div class="step-card">
             <div class="step-timeline">
                 <div class="step-num active">03</div>
@@ -915,19 +920,26 @@
             </div>
             <div class="step-body">
                 <div class="step-head">
-                    <span class="step-name">Navigation dans OpenIV</span>
+                    <span class="step-name">Copie du dlclist.xml</span>
                 </div>
                 <p class="step-desc">
-                    Lance <strong>OpenIV</strong> et navigue jusqu'au répertoire suivant :
+                    Prends le fichier <code>dlclist.xml</code> officiel situé dans ton répertoire d'origine :
                 </p>
                 <div class="path-box">
                     <i class="fas fa-folder-open"></i>
-                    GTA V &rsaquo; mods &rsaquo; update &rsaquo; update.rpf &rsaquo; common &rsaquo; data
+                    gtav &rsaquo; update &rsaquo; update.rpf &rsaquo; common &rsaquo; data
+                </div>
+                <p class="step-desc" style="margin-top: 10px;">
+                    Copie-le ensuite vers ton dossier <strong>mods</strong> :
+                </p>
+                <div class="path-box">
+                    <i class="fas fa-folder-open"></i>
+                    gtav &rsaquo; mods &rsaquo; update &rsaquo; update.rpf &rsaquo; common &rsaquo; data
                 </div>
             </div>
         </div>
 
-        <!-- Étape 4 : DLC List -->
+        <!-- Étape 4 : Modification du dlclist.xml -->
         <div class="step-card">
             <div class="step-timeline">
                 <div class="step-num active">04</div>
@@ -935,30 +947,60 @@
             </div>
             <div class="step-body">
                 <div class="step-head">
-                    <span class="step-name">Configuration du DLC List</span>
+                    <span class="step-name">Configuration du dlclist.xml</span>
                 </div>
                 <p class="step-desc">
-                    Ouvre le fichier <strong>dlclist.xml</strong> et ajoute les lignes suivantes à la fin de la liste :
+                    Ouvre ton <code>dlclist.xml</code> (dans le dossier mods).<br>
+                    <strong>1. Supprime absolument ces lignes :</strong>
+                </p>
+                <div class="code-wrap">
+                    <div class="code-header">Lignes à supprimer</div>
+                    <code class="code-block code-del">&lt;Item&gt;dlcpacks:/mp2026_01/&lt;/Item&gt;
+&lt;Item&gt;dlcpacks:/mp2026_01_g9ec/&lt;/Item&gt;
+&lt;Item&gt;dlcpacks:/patch2026_01/&lt;/Item&gt;</code>
+                </div>
+                <p class="step-desc" style="margin-top: 14px;">
+                    <strong>2. Ajoute ces nouvelles lignes :</strong>
                 </p>
                 <div class="code-wrap">
                     <div class="code-header">
-                        dlclist.xml
+                        Lignes à ajouter
                         <button class="btn-copy" id="copyBtn" onclick="copyDlcList()">
                             <i class="fas fa-copy"></i> Copier
                         </button>
                     </div>
-                    <code class="code-block" id="dlcCode">      &lt;Item&gt;dlcpacks:/eup/&lt;/Item&gt;
-        &lt;Item&gt;dlcpacks:/sup/&lt;/Item&gt;
-        &lt;Item&gt;dlcpacks:/packfreupsm/&lt;/Item&gt;
-        &lt;Item&gt;dlcpacks:/packfreupsm2/&lt;/Item&gt;</code>
+                    <code class="code-block" id="dlcCode">&lt;Item&gt;dlcpacks:/eup/&lt;/Item&gt;
+&lt;Item&gt;dlcpacks:/sup/&lt;/Item&gt;
+&lt;Item&gt;dlcpacks:/packfreupsm/&lt;/Item&gt;
+&lt;Item&gt;dlcpacks:/packfreupsm2/&lt;/Item&gt;</code>
                 </div>
             </div>
         </div>
 
-        <!-- Étape 5 : Preset LSPDFR -->
+        <!-- Étape 5 : Pack EUP Secours Français -->
         <div class="step-card">
             <div class="step-timeline">
-                <div class="step-num" style="border-color:rgba(23,162,184,0.4);color:#5BC8D8;">05</div>
+                <div class="step-num active">05</div>
+                <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+                <div class="step-head">
+                    <span class="step-name">Installation du Pack EUP</span>
+                    <span class="badge badge-required">Obligatoire</span>
+                </div>
+                <p class="step-desc">
+                    Télécharge la dernière version <strong>Pack EUP Secours Français - V<span class="dynamic-version"></span></strong> et remplace l'intégralité du contenu de ton jeu par celui du pack.
+                </p>
+                <a href="" target="_blank" class="btn-secondary dynamic-download-link" style="background:rgba(232,33,43,0.1); border-color:rgba(232,33,43,0.35); color:#FF6B6B;">
+                    <i class="fas fa-download"></i> Télécharger Pack V<span class="dynamic-version"></span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Étape 6 : Preset LSPDFR -->
+        <div class="step-card">
+            <div class="step-timeline">
+                <div class="step-num" style="border-color:rgba(23,162,184,0.4);color:#5BC8D8;">06</div>
                 <div class="step-vline"></div>
             </div>
             <div class="step-body">
@@ -977,10 +1019,10 @@
             </div>
         </div>
 
-        <!-- Étape 6 : Policing Redefined -->
+        <!-- Étape 7 : Policing Redefined -->
         <div class="step-card">
             <div class="step-timeline">
-                <div class="step-num" style="border-color:rgba(23,162,184,0.4);color:#5BC8D8;">06</div>
+                <div class="step-num" style="border-color:rgba(23,162,184,0.4);color:#5BC8D8;">07</div>
                 <div class="step-vline"></div>
             </div>
             <div class="step-body">
@@ -998,10 +1040,10 @@
             </div>
         </div>
 
-        <!-- Étape 7 : Ultimate Backup -->
+        <!-- Étape 8 : Ultimate Backup -->
         <div class="step-card">
             <div class="step-timeline">
-                <div class="step-num" style="border-color:rgba(23,162,184,0.4);color:#5BC8D8;">07</div>
+                <div class="step-num" style="border-color:rgba(23,162,184,0.4);color:#5BC8D8;">08</div>
                 <div class="step-vline"></div>
             </div>
             <div class="step-body">
@@ -1019,10 +1061,10 @@
             </div>
         </div>
 
-        <!-- Étape 8 : Vidéo -->
+        <!-- Étape 9 : Vidéo -->
         <div class="step-card">
             <div class="step-timeline">
-                <div class="step-num" style="border-color:rgba(23,162,184,0.4);color:#5BC8D8;">08</div>
+                <div class="step-num" style="border-color:rgba(23,162,184,0.4);color:#5BC8D8;">09</div>
                 <div class="step-vline"></div>
             </div>
             <div class="step-body">
@@ -1086,7 +1128,7 @@
     <a href="https://discord.gg/FbXFCpQXT9" target="_blank" class="btn-discord">
         <i class="fab fa-discord"></i> Rejoindre le Discord
     </a>
-    <p class="footer-version">Version 2.7 Stable — 01 Aout 2026</p>
+    <p class="footer-version">Version <span class="dynamic-version"></span> Stable</p>
 </footer>
 
 <!-- Modal Problèmes -->
@@ -1126,6 +1168,15 @@
 </div>
 
 <script>
+    // Variables modifiables facilement :
+    const CURRENT_VERSION = "2.8";
+    const DOWNLOAD_LINK = "https://drive.google.com/drive/folders/1rv5IRBlNW_JDrWP2VtU1KdRQloF2C8Zf?usp=drive_link";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".dynamic-version").forEach(el => el.textContent = CURRENT_VERSION);
+        document.querySelectorAll(".dynamic-download-link").forEach(el => el.href = DOWNLOAD_LINK);
+    });
+
     function openModal() {
         document.getElementById('problemModal').classList.add('open');
         document.body.style.overflow = 'hidden';
